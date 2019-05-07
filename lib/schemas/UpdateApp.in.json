@@ -1,0 +1,168 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "appId": {
+                    "description": "ID of the application to update.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "New description of the application.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "New name of the application.",
+                    "type": "string"
+                },
+                "roleName": {
+                    "description": "Name of the service role in the customer's account used by AWS SMS.",
+                    "type": "string"
+                },
+                "serverGroups": {
+                    "description": "List of server groups in the application to update.",
+                    "items": {
+                        "description": "A logical grouping of servers.",
+                        "properties": {
+                            "name": {
+                                "description": "Name of a server group.",
+                                "type": "string"
+                            },
+                            "serverGroupId": {
+                                "description": "Identifier of a server group.",
+                                "type": "string"
+                            },
+                            "serverList": {
+                                "description": "List of servers belonging to a server group.",
+                                "items": {
+                                    "description": "Represents a server.",
+                                    "properties": {
+                                        "replicationJobId": {
+                                            "description": "The identifier of the replication job.",
+                                            "type": "string"
+                                        },
+                                        "replicationJobTerminated": {
+                                            "description": "Indicates whether the replication job is deleted or failed.",
+                                            "type": "boolean"
+                                        },
+                                        "serverId": {
+                                            "description": "The identifier of the server.",
+                                            "type": "string"
+                                        },
+                                        "serverType": {
+                                            "description": "The type of server.",
+                                            "enum": [
+                                                "VIRTUAL_MACHINE"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "vmServer": {
+                                            "description": "Information about the VM server.",
+                                            "properties": {
+                                                "vmManagerName": {
+                                                    "description": "The name of the VM manager.",
+                                                    "type": "string"
+                                                },
+                                                "vmManagerType": {
+                                                    "description": "The type of VM management product.",
+                                                    "enum": [
+                                                        "VSPHERE",
+                                                        "SCVMM",
+                                                        "HYPERV-MANAGER"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "vmName": {
+                                                    "description": "The name of the VM.",
+                                                    "type": "string"
+                                                },
+                                                "vmPath": {
+                                                    "description": "The VM folder path in the vCenter Server virtual machine inventory tree.",
+                                                    "type": "string"
+                                                },
+                                                "vmServerAddress": {
+                                                    "description": "Information about the VM server location.",
+                                                    "properties": {
+                                                        "vmId": {
+                                                            "description": "The identifier of the VM.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmManagerId": {
+                                                            "description": "The identifier of the VM manager.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "tags": {
+                    "description": "List of tags to associate with the application.",
+                    "items": {
+                        "description": "A label that can be assigned to an application.",
+                        "properties": {
+                            "key": {
+                                "description": "Tag key.",
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "Tag value.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

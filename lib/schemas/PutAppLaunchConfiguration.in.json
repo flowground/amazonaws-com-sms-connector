@@ -1,0 +1,196 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "appId": {
+                    "description": "ID of the application associated with the launch configuration.",
+                    "type": "string"
+                },
+                "roleName": {
+                    "description": "Name of service role in the customer's account that Amazon CloudFormation uses to launch the application.",
+                    "type": "string"
+                },
+                "serverGroupLaunchConfigurations": {
+                    "description": "Launch configurations for server groups in the application.",
+                    "items": {
+                        "description": "Launch configuration for a server group.",
+                        "properties": {
+                            "launchOrder": {
+                                "description": "Launch order of servers in the server group.",
+                                "type": "integer"
+                            },
+                            "serverGroupId": {
+                                "description": "Identifier of the server group the launch configuration is associated with.",
+                                "type": "string"
+                            },
+                            "serverLaunchConfigurations": {
+                                "description": "Launch configuration for servers in the server group.",
+                                "items": {
+                                    "description": "Launch configuration for a server.",
+                                    "properties": {
+                                        "associatePublicIpAddress": {
+                                            "description": "If true, a publicly accessible IP address is created when launching the server.",
+                                            "type": "boolean"
+                                        },
+                                        "ec2KeyName": {
+                                            "description": "Name of the EC2 SSH Key to be used for connecting to the launched server.",
+                                            "type": "string"
+                                        },
+                                        "instanceType": {
+                                            "description": "Instance type to be used for launching the server.",
+                                            "type": "string"
+                                        },
+                                        "logicalId": {
+                                            "description": "Logical ID of the server in the Amazon CloudFormation template.",
+                                            "type": "string"
+                                        },
+                                        "securityGroup": {
+                                            "description": "Identifier of the security group that applies to the launched server.",
+                                            "type": "string"
+                                        },
+                                        "server": {
+                                            "description": "Identifier of the server the launch configuration is associated with.",
+                                            "properties": {
+                                                "replicationJobId": {
+                                                    "description": "The identifier of the replication job.",
+                                                    "type": "string"
+                                                },
+                                                "replicationJobTerminated": {
+                                                    "description": "Indicates whether the replication job is deleted or failed.",
+                                                    "type": "boolean"
+                                                },
+                                                "serverId": {
+                                                    "description": "The identifier of the server.",
+                                                    "type": "string"
+                                                },
+                                                "serverType": {
+                                                    "description": "The type of server.",
+                                                    "enum": [
+                                                        "VIRTUAL_MACHINE"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "vmServer": {
+                                                    "description": "Information about the VM server.",
+                                                    "properties": {
+                                                        "vmManagerName": {
+                                                            "description": "The name of the VM manager.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmManagerType": {
+                                                            "description": "The type of VM management product.",
+                                                            "enum": [
+                                                                "VSPHERE",
+                                                                "SCVMM",
+                                                                "HYPERV-MANAGER"
+                                                            ],
+                                                            "type": "string"
+                                                        },
+                                                        "vmName": {
+                                                            "description": "The name of the VM.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmPath": {
+                                                            "description": "The VM folder path in the vCenter Server virtual machine inventory tree.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmServerAddress": {
+                                                            "description": "Information about the VM server location.",
+                                                            "properties": {
+                                                                "vmId": {
+                                                                    "description": "The identifier of the VM.",
+                                                                    "type": "string"
+                                                                },
+                                                                "vmManagerId": {
+                                                                    "description": "The identifier of the VM manager.",
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "subnet": {
+                                            "description": "Identifier of the subnet the server should be launched into.",
+                                            "type": "string"
+                                        },
+                                        "userData": {
+                                            "description": "Location of the user-data script to be executed when launching the server.",
+                                            "properties": {
+                                                "s3Location": {
+                                                    "description": "Amazon S3 location of the user-data script.",
+                                                    "properties": {
+                                                        "bucket": {
+                                                            "description": "Amazon S3 bucket name.",
+                                                            "type": "string"
+                                                        },
+                                                        "key": {
+                                                            "description": "Amazon S3 bucket key.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "vpc": {
+                                            "description": "Identifier of the VPC the server should be launched into.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "description": {
+                    "description": "The description of the replication job.",
+                    "type": "string"
+                },
+                "encrypted": {
+                    "description": "When <i>true</i>, the replication job produces encrypted AMIs. See also <code>KmsKeyId</code> below.",
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "description": "The time between consecutive replication runs, in hours.",
+                    "type": "integer"
+                },
+                "kmsKeyId": {
+                    "description": "<p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following: </p> <ul> <li> <p>KMS key ID</p> </li> <li> <p>KMS key alias</p> </li> <li> <p>ARN referring to KMS key ID</p> </li> <li> <p>ARN referring to KMS key alias</p> </li> </ul> <p> If encrypted is <i>true</i> but a KMS key id is not specified, the customer's default KMS key for EBS is used. </p>",
+                    "type": "string"
+                },
+                "licenseType": {
+                    "description": "The license type to be used for the AMI created by a successful replication run.",
+                    "enum": [
+                        "AWS",
+                        "BYOL"
+                    ],
+                    "type": "string"
+                },
+                "numberOfRecentAmisToKeep": {
+                    "description": "The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the maximum number is reached and a new AMI is created.",
+                    "type": "integer"
+                },
+                "roleName": {
+                    "description": "The name of the IAM role to be used by the AWS SMS.",
+                    "type": "string"
+                },
+                "runOnce": {
+                    "description": "<p/>",
+                    "type": "boolean"
+                },
+                "seedReplicationTime": {
+                    "description": "The seed replication time.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "serverId": {
+                    "description": "The identifier of the server.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "serverId",
+                "seedReplicationTime"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

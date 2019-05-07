@@ -1,0 +1,516 @@
+{
+    "title": "AWS Server Migration Service",
+    "description": "<fullname>AAWS Sever Migration Service</fullname> <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions, syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service (AWS SMS). The topic for each action shows the Query API request parameters and the XML response. You can also view the XML request elements in the WSDL.</p> <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see <a href=\"http://aws.amazon.com/tools/#SDKs\">AWS SDKs</a>.</p> <p>To learn more about the Server Migration Service, see the following resources:</p> <ul> <li> <p> <a href=\"https://aws.amazon.com/server-migration-service/\">AWS Sever Migration Service product page</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html\">AWS Sever Migration Service User Guide</a> </p> </li> </ul>",
+    "docsUrl": "https://docs.aws.amazon.com/sms/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/sms/2016-10-24/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://sms.amazonaws.com/",
+                    "http://sms.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "CreateApp": {
+            "main": "./lib/actions/CreateApp.js",
+            "title": "Creates an application. An application consists of one or more server groups. Each server group contain one or more servers.",
+            "description": "Creates an application. An application consists of one or more server groups. Each server group contain one or more servers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateReplicationJob": {
+            "main": "./lib/actions/CreateReplicationJob.js",
+            "title": "Creates a replication job. The replication job schedules periodic replication runs to replicate your server to AWS. Each replication run creates an Amazon Machine Image (AMI).",
+            "description": "Creates a replication job. The replication job schedules periodic replication runs to replicate your server to AWS. Each replication run creates an Amazon Machine Image (AMI).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateReplicationJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteApp": {
+            "main": "./lib/actions/DeleteApp.js",
+            "title": "Deletes an existing application. Optionally deletes the launched stack associated with the application and all AWS SMS replication jobs for servers in the application.",
+            "description": "Deletes an existing application. Optionally deletes the launched stack associated with the application and all AWS SMS replication jobs for servers in the application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteAppLaunchConfiguration": {
+            "main": "./lib/actions/DeleteAppLaunchConfiguration.js",
+            "title": "Deletes existing launch configuration for an application.",
+            "description": "Deletes existing launch configuration for an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteAppLaunchConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteAppReplicationConfiguration": {
+            "main": "./lib/actions/DeleteAppReplicationConfiguration.js",
+            "title": "Deletes existing replication configuration for an application.",
+            "description": "Deletes existing replication configuration for an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteAppReplicationConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteReplicationJob": {
+            "main": "./lib/actions/DeleteReplicationJob.js",
+            "title": "<p>Deletes the specified replication job.</p> <p>After you delete a replication job, there are no further replication runs. AWS deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created by the replication runs are not deleted.</p>",
+            "description": "<p>Deletes the specified replication job.</p> <p>After you delete a replication job, there are no further replication runs. AWS deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created by the replication runs are not deleted.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteReplicationJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteServerCatalog": {
+            "main": "./lib/actions/DeleteServerCatalog.js",
+            "title": "Deletes all servers from your server catalog.",
+            "description": "Deletes all servers from your server catalog.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteServerCatalog.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateConnector": {
+            "main": "./lib/actions/DisassociateConnector.js",
+            "title": "<p>Disassociates the specified connector from AWS SMS.</p> <p>After you disassociate a connector, it is no longer available to support replication jobs.</p>",
+            "description": "<p>Disassociates the specified connector from AWS SMS.</p> <p>After you disassociate a connector, it is no longer available to support replication jobs.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateConnector.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GenerateChangeSet": {
+            "main": "./lib/actions/GenerateChangeSet.js",
+            "title": "Generates a target change set for a currently launched stack and writes it to an Amazon S3 object in the customer's Amazon S3 bucket.",
+            "description": "Generates a target change set for a currently launched stack and writes it to an Amazon S3 object in the customer's Amazon S3 bucket.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GenerateChangeSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GenerateTemplate": {
+            "main": "./lib/actions/GenerateTemplate.js",
+            "title": "Generates an Amazon CloudFormation template based on the current launch configuration and writes it to an Amazon S3 object in the customer's Amazon S3 bucket.",
+            "description": "Generates an Amazon CloudFormation template based on the current launch configuration and writes it to an Amazon S3 object in the customer's Amazon S3 bucket.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GenerateTemplate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetApp": {
+            "main": "./lib/actions/GetApp.js",
+            "title": "Retrieve information about an application.",
+            "description": "Retrieve information about an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAppLaunchConfiguration": {
+            "main": "./lib/actions/GetAppLaunchConfiguration.js",
+            "title": "Retrieves the application launch configuration associated with an application.",
+            "description": "Retrieves the application launch configuration associated with an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAppLaunchConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAppReplicationConfiguration": {
+            "main": "./lib/actions/GetAppReplicationConfiguration.js",
+            "title": "Retrieves an application replication configuration associatd with an application.",
+            "description": "Retrieves an application replication configuration associatd with an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAppReplicationConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConnectors": {
+            "main": "./lib/actions/GetConnectors.js",
+            "title": "Describes the connectors registered with the AWS SMS.",
+            "description": "Describes the connectors registered with the AWS SMS.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConnectors.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetReplicationJobs": {
+            "main": "./lib/actions/GetReplicationJobs.js",
+            "title": "Describes the specified replication job or all of your replication jobs.",
+            "description": "Describes the specified replication job or all of your replication jobs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetReplicationJobs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetReplicationRuns": {
+            "main": "./lib/actions/GetReplicationRuns.js",
+            "title": "Describes the replication runs for the specified replication job.",
+            "description": "Describes the replication runs for the specified replication job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetReplicationRuns.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetServers": {
+            "main": "./lib/actions/GetServers.js",
+            "title": "<p>Describes the servers in your server catalog.</p> <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>",
+            "description": "<p>Describes the servers in your server catalog.</p> <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetServers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ImportServerCatalog": {
+            "main": "./lib/actions/ImportServerCatalog.js",
+            "title": "<p>Gathers a complete list of on-premises servers. Connectors must be installed and monitoring all servers that you want to import.</p> <p>This call returns immediately, but might take additional time to retrieve all the servers.</p>",
+            "description": "<p>Gathers a complete list of on-premises servers. Connectors must be installed and monitoring all servers that you want to import.</p> <p>This call returns immediately, but might take additional time to retrieve all the servers.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ImportServerCatalog.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "LaunchApp": {
+            "main": "./lib/actions/LaunchApp.js",
+            "title": "Launches an application stack.",
+            "description": "Launches an application stack.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/LaunchApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListApps": {
+            "main": "./lib/actions/ListApps.js",
+            "title": "Returns a list of summaries for all applications.",
+            "description": "Returns a list of summaries for all applications.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListApps.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutAppLaunchConfiguration": {
+            "main": "./lib/actions/PutAppLaunchConfiguration.js",
+            "title": "Creates a launch configuration for an application.",
+            "description": "Creates a launch configuration for an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutAppLaunchConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutAppReplicationConfiguration": {
+            "main": "./lib/actions/PutAppReplicationConfiguration.js",
+            "title": "Creates or updates a replication configuration for an application.",
+            "description": "Creates or updates a replication configuration for an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutAppReplicationConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartAppReplication": {
+            "main": "./lib/actions/StartAppReplication.js",
+            "title": "Starts replicating an application.",
+            "description": "Starts replicating an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartAppReplication.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartOnDemandReplicationRun": {
+            "main": "./lib/actions/StartOnDemandReplicationRun.js",
+            "title": "<p>Starts an on-demand replication run for the specified replication job. This replication run starts immediately. This replication run is in addition to the ones already scheduled.</p> <p>There is a limit on the number of on-demand replications runs you can request in a 24-hour period.</p>",
+            "description": "<p>Starts an on-demand replication run for the specified replication job. This replication run starts immediately. This replication run is in addition to the ones already scheduled.</p> <p>There is a limit on the number of on-demand replications runs you can request in a 24-hour period.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartOnDemandReplicationRun.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopAppReplication": {
+            "main": "./lib/actions/StopAppReplication.js",
+            "title": "Stops replicating an application.",
+            "description": "Stops replicating an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopAppReplication.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TerminateApp": {
+            "main": "./lib/actions/TerminateApp.js",
+            "title": "Terminates the stack for an application.",
+            "description": "Terminates the stack for an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TerminateApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateApp": {
+            "main": "./lib/actions/UpdateApp.js",
+            "title": "Updates an application.",
+            "description": "Updates an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateApp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateReplicationJob": {
+            "main": "./lib/actions/UpdateReplicationJob.js",
+            "title": "Updates the specified settings for the specified replication job.",
+            "description": "Updates the specified settings for the specified replication job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateReplicationJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

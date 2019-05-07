@@ -1,0 +1,179 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "appId": {
+                    "description": "ID of the application tassociated with the replication configuration.",
+                    "type": "string"
+                },
+                "serverGroupReplicationConfigurations": {
+                    "description": "Replication configurations for server groups in the application.",
+                    "items": {
+                        "description": "Replication configuration for a server group.",
+                        "properties": {
+                            "serverGroupId": {
+                                "description": "Identifier of the server group this replication configuration is associated with.",
+                                "type": "string"
+                            },
+                            "serverReplicationConfigurations": {
+                                "description": "Replication configuration for servers in the server group.",
+                                "items": {
+                                    "description": "Replication configuration of a server.",
+                                    "properties": {
+                                        "server": {
+                                            "description": "Identifier of the server this replication configuration is associated with.",
+                                            "properties": {
+                                                "replicationJobId": {
+                                                    "description": "The identifier of the replication job.",
+                                                    "type": "string"
+                                                },
+                                                "replicationJobTerminated": {
+                                                    "description": "Indicates whether the replication job is deleted or failed.",
+                                                    "type": "boolean"
+                                                },
+                                                "serverId": {
+                                                    "description": "The identifier of the server.",
+                                                    "type": "string"
+                                                },
+                                                "serverType": {
+                                                    "description": "The type of server.",
+                                                    "enum": [
+                                                        "VIRTUAL_MACHINE"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "vmServer": {
+                                                    "description": "Information about the VM server.",
+                                                    "properties": {
+                                                        "vmManagerName": {
+                                                            "description": "The name of the VM manager.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmManagerType": {
+                                                            "description": "The type of VM management product.",
+                                                            "enum": [
+                                                                "VSPHERE",
+                                                                "SCVMM",
+                                                                "HYPERV-MANAGER"
+                                                            ],
+                                                            "type": "string"
+                                                        },
+                                                        "vmName": {
+                                                            "description": "The name of the VM.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmPath": {
+                                                            "description": "The VM folder path in the vCenter Server virtual machine inventory tree.",
+                                                            "type": "string"
+                                                        },
+                                                        "vmServerAddress": {
+                                                            "description": "Information about the VM server location.",
+                                                            "properties": {
+                                                                "vmId": {
+                                                                    "description": "The identifier of the VM.",
+                                                                    "type": "string"
+                                                                },
+                                                                "vmManagerId": {
+                                                                    "description": "The identifier of the VM manager.",
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "serverReplicationParameters": {
+                                            "description": "Parameters for replicating the server.",
+                                            "properties": {
+                                                "encrypted": {
+                                                    "description": "When true, the replication job produces encrypted AMIs. See also <code>KmsKeyId</code> below.",
+                                                    "type": "boolean"
+                                                },
+                                                "frequency": {
+                                                    "description": "Frequency of creating replication jobs for the server.",
+                                                    "type": "integer"
+                                                },
+                                                "kmsKeyId": {
+                                                    "description": "<p/> <p>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following: </p> <ul> <li> <p>KMS key ID</p> </li> <li> <p>KMS key alias</p> </li> <li> <p>ARN referring to KMS key ID</p> </li> <li> <p>ARN referring to KMS key alias</p> </li> </ul> <p> If encrypted is <i>true</i> but a KMS key id is not specified, the customer's default KMS key for EBS is used. </p>",
+                                                    "type": "string"
+                                                },
+                                                "licenseType": {
+                                                    "description": "License type for creating a replication job for the server.",
+                                                    "enum": [
+                                                        "AWS",
+                                                        "BYOL"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "numberOfRecentAmisToKeep": {
+                                                    "description": "Number of recent AMIs to keep when creating a replication job for this server.",
+                                                    "type": "integer"
+                                                },
+                                                "runOnce": {
+                                                    "description": "<p/>",
+                                                    "type": "boolean"
+                                                },
+                                                "seedTime": {
+                                                    "description": "Seed time for creating a replication job for the server.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
